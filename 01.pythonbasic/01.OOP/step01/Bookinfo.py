@@ -1,10 +1,11 @@
 class Book:
 
-    def __init__(self, name, grade):
+    def __init__(self, title, author):
         self.title = title
         self.author = author
         print('Book __init__')
 
-    def getCustName(self):
-        print('Book getBookname')
-        return self. title
+
+    def getBookName(self):        
+        print('Book getBookName')
+        return self.title
