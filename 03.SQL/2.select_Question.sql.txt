@@ -140,7 +140,10 @@
 
 /**21.
 커미션이 null이 아닌 사원의 정보를 출력하라.
-*/
+*/ 
+select comm, ename
+from emp
+where comm is noe null;
 
 
 
