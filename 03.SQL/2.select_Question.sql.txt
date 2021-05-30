@@ -161,7 +161,9 @@ where deptno = 30, sal >= 1500;
 /**22.
 이름의 첫글자가 K로 시작하거나 부서번호가 30인 사람의 사원번호, 이름, 부서번호를 출력하라.
 */
-
+select deptno, empno, ename
+from emp
+where ename like 'K%' or deptno = 30
 
 
 
