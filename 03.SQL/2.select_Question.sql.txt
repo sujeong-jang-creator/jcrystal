@@ -151,6 +151,9 @@ where comm is noe null;
 /**22.
 부서가 30번 부서이고 급여가 1500이상인 사람의 이름, 부서, 월급(sal)을 출력하라.
 */
+select deptno, ename, sal
+from emp
+where deptno = 30, sal >= 1500; 
 
 
 
