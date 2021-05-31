@@ -159,7 +159,6 @@ select months_between(sysdate, '2021-01-31') from dual;
 select next_day(sysdate, '토요일') from dual;
 select next_day(sysdate, '토') from dual;
 
-
 --7. 주어진 날짜를 기준으로 해당 달의 가장 마지막 날짜 : last_day()
 select last_day(sysdate) from dual;
 select last_day('2021-01-28') from dual;
@@ -282,17 +281,4 @@ select ename, sal, decode(job, 'ANALYST', sal*1.05
 from emp;
 
 --3. 'MANAGER'인 직군은 '갑', 'ANALYST' 직군은 '을', 나머지는 '병'으로 검색
-
-
-
--- 1. locations table 에서 country_id가 US에 해당하는 city를 출력해 주세요.
-SELECT city, country_id
-FROM locations
-WHERE country_id = 'US';
-
--- 2. locations table 에서 postal_code에 'Y'가 들어가는 city를 city 기준 오름차순으로 출력해 주세요. (단, city는 대문자로 출력)
-SELECT upper(city), postal_code
-FROM locations
-WHERE postal_code LIKE '%S%'
-ORDER BY city ASC;
 
