@@ -180,7 +180,7 @@ select last_day('2021/02/08') from dual;
 
 
 
--- [1] to_char(데이터, '변경포멧')
+-- [1] to_char(데이터, '변경포멧')r
 --1. 오늘 날짜를 'yyyy-mm-dd' 변환 : 
 select to_char(sysdate, 'yyyy/mm/dd') from dual;
 
@@ -205,7 +205,7 @@ select to_char(sysdate, 'yyyy-mm-dd hh:mi:ss am') from dual;
 -- 날짜의 trunc() : 24시간 내의 모든 내용 당일 처리
 select sysdate, round(sysdate), trunc(sysdate) from dual;
 
-select sysdate, round(sysdate), to_char(trunc(sysdate) from dual
+select sysdate, round(sysdate), to_char(trunc(sysdate) from dual;
 
 
 -- 3. 숫자를 문자형으로 변환 : to_char()
@@ -246,7 +246,7 @@ select ename from emp where hiredate='1980-12-17';
 -- 힌트 - 9 : 실제 데이터의 유효한 자릿수 숫자 의미(자릿수 채우지 않음)
 -- ?
 -- error : select '20,000' - '10,000' from dual;
-
+-
 -- 문자열을 숫자로 변환시 포멧도 설정
 select to_number('20,000', '99,999') - to_number('10,000', '99,999') from dual;
 
@@ -274,11 +274,16 @@ from dept;
 --2. emp table의 연봉(sal) 인상계산
 -- job이 ANALYST 5%인상(sal*1.05), SALESMAN 은 10%(sal*1.1) 인상, MANAGER는 15%(sal*1.15), CLERK 20%(sal*1.2) 이상 
 
-select ename, sal, decode(job, 'ANALYST', sal*1.05
-                                 'SALESMAN', sal*1.1,
-                                'MANAGER', sal*1.15,
-                                 'CLERK', sal*1.2); as 인상분
+select ename, sal, decode(job, 'ANALYST', sal*1.05,
+                               'SALESMAN', sal*1.1,
+                               'MANAGER', sal*1.15,
+                               'CLERK', sal*1.2) as 인상분
 from emp;
 
 --3. 'MANAGER'인 직군은 '갑', 'ANALYST' 직군은 '을', 나머지는 '병'으로 검색
+
+SELECT job, decode(job, 'MANAGER', '갑',
+                        'ANALYST', '을',
+                                   '병')
+FROM emp;
 
