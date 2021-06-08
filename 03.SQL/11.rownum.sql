@@ -4,8 +4,12 @@
 -- oracle 자체적으로 제공하는 컬럼
 -- table 당 무조건 자동 생성
 -- 검색시 검색된 데이터 순서대로 rownum값 자동 반영(1부터 시작)
+-- from절 select절 where절 순으로 실행되는 것은 변함없으나 
+-- where절에 사용시에는 1~ 부터 유효한 경우에 한해서만 정상인지
+-- rownum은 오라클 자체적인 키워드 즉 이미 존재하는 기능
+-- 모든 언어가 키워드는 적절한 위치에 있으면 문법 오류는 발생 안함
 
--- *** 인라인 뷰
+-- *** 인라인 뷰 ***
 	-- 검색시 빈번히 활용되는 스펙
 	-- 다수의 글들이 있는 게시판에 필수로 사용(paging 처리)
 	-- 서브쿼리의 일종으로 from절에 위치하여 테이블처럼 사용
@@ -16,20 +20,17 @@ select rownum, deptno from dept;
 
 -- 코드만으로 rownum 탐색 ?
 -- 검색시 검색된 데이터 순서대로 rownum값 자동 반영(1부터 시작)
--- from 절 select절 where절 순으로 실행되는 것은 변함없으나
--- where절에 사용시에는 1~ 부터 유효한 경우에 한해서만 정상인지
--- rownum은 오라클 자체적인 키워드 즉 이미 존재하는 기능
--- 모든 언어가 키워드는 적절한 위치에 있으면 문법 오류는 
-
 --  실행순서 : from -> where -> select 
--- 암기사항 : rownum은 검색시에 검색된 결과에 자동index를 부여.
-    -- 1부터 활용해야 함.
-    -- 하단 > 4보다 크다인 경우엔 4부터 시작점으로 내부적으로 간주해서
-    -- 문법 오류가 아니라 논리적으로 1부터 시작을 안했다 라는 관점에서 무효화
+-- 암시사항 : rownum은 검색시에 검색된 결과에 자동 index를 부여
+	-- 1부터 활용해야 함
+	-- 하단 > 4보다 크다인 경우엔 4부터 시작점으로 내부적으로 간주해서
+	-- 문법 오류가 아니라 논리적으로 1부터 시작을 안 했다라는 관점에서
+	-- 무효화
 select rownum, deptno from dept where rownum > 4;
 select rownum, deptno from dept where rownum > 5;
 -- no rows selected
 
+--하단 코드가 검색되는 사유 : < 4조건은 1~3 유효범위이기 때문
 select rownum, deptno from dept where rownum < 4;
 select rownum, deptno from dept where rownum < 5;
 -- 데이터 검색이 조건에 맞게 검색되었음
@@ -105,6 +106,8 @@ order by deptno desc;
 -- 3명만 이름과 급여 검색 
 -- 인라인 뷰 사용? 미사용?
 select ename, sal from emp order by sal desc;
+
+
 select rownum, ename, sal from emp order by sal desc;
 -- from -> select(rownum) -> order by sal ..: 
 -- rownum 이미 검색된 결과
@@ -164,7 +167,7 @@ SMITH                       800
 */
 select rownum, ename, sal
 from (select rownum, ename, sal 
- 	 from emp order by sal desc);
+ 	  from emp order by sal desc);
 /*
 
     ROWNUM ENAME                       SAL
@@ -188,21 +191,35 @@ from (select rownum, ename, sal
  	 from emp order by sal desc)
 where rownum <= 3;
 
+-- 박철희작 : 최종 서비스에선 from절 즉 inline view에선
+-- rownum 삭제 함
+select rownum, ename, sal
+from (select ename, sal 
+ 	 from emp order by sal desc)
+where rownum <= 3;
 
--- 5.? emp의 deptno의 값이 오름차순으로 정렬된 상태로
--- 상위 3개 데이터 검색
 
-SELECT deptno FROM emp ORDER BY deptno asc; 
-SELECT rownum, deptno FROM emp ORDER BY deptno asc; 
-
-SELECT rownum, deptno 
-FROM (SELECT rownum, deptno 
-      FROM emp 
-      ORDER BY deptno asc);
  
-SELECT rownum, deptno 
-FROM (SELECT rownum, deptno 
-      FROM emp 
-      ORDER BY deptno asc)
-WHERE rownum < 4;
+ --5. ? emp의 deptno의 값이 오름차순으로 정렬된 상태로 
+ -- 상위 3개 데이터 검색
+select deptno from emp;
+select deptno from emp order by deptno asc;
+select rownum, deptno from emp order by deptno asc;
 
+select rownum, deptno 
+from (select deptno 
+	  from emp 
+	  order by deptno asc); 
+
+select rownum, deptno 
+from (select deptno 
+	  from emp 
+	  order by deptno asc)
+where rownum < 4; 
+
+
+select rownum, deptno 
+from (select deptno 
+	  from emp 
+	  order by deptno asc)
+where rownum < 4; 

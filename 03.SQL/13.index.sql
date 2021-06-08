@@ -1,7 +1,7 @@
 ﻿--13.index.sql
 /*
 1. db의 빠른 검색을 위한 색인 기능의 index 학습
-	- primary key는 기본적으로 자동 index로 설정됨 
+	- primary key(not null/unique)는 기본적으로 자동 index로 설정됨 
 	
 	- DB 자체적으로 빠른 검색 기능 부여
 		이 빠른 검색 기능 - index
@@ -21,7 +21,7 @@
 
 --1. index용 검색 속도 확일을 위한 table 생성
 drop table emp01;
-create table emp01 as select * from emp;
+create table emp01 as select * from emp;   -- index 적용해서 실행속도 확인을 위해 몇십번 몇백번 수행했다 가정
 
 
 --2. 테스트를 위한 데이터값을 복사 붙여넣기
@@ -29,15 +29,15 @@ insert into emp01 select * from emp01;
 select count(*) from emp01;
 
 select * from emp01 where ename='SMITH';
+select * from emp01 where empno=7369;
 
-
---3. emp01 table에 index 기능 적용
-
+--3. emp01 table에 없던 index(색인) 기능 적용하는 문법
+create index idx_emp01_empno on emp01(empno);
 
 
 --4. SMITH 사번 검색 시간 체크  
 select * from emp01 where empno=7369;
-
+select * from emp01 where ename='SMITH';
 
 --5. index 삭제 명령어
 drop index idx_emp01_empno;

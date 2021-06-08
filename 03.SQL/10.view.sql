@@ -82,7 +82,6 @@ select * from dept01;
 
 
 
-
 --5. 모든 end user가 빈번히 사용하는 sql문장으로
 --  "해당 직원의 모든 정보 검색(empno, ename, deptno, loc)"하기
 -- emp/dept 두 table의 join
@@ -120,23 +119,34 @@ desc user_views;
 drop view emp01_dept01_v;
 select * from user_views;
 
--- inline view
--- 8. emp, dept table에서 검색, 조건은 각 부서별 지역명, 근무하는 사원 검색
 
--- inline 미사용시에도 검색 결과는 동일하나 문법review 및 inline에서 검색 안된 컬럼데이터는 메인 select에서 사용불가 ㅗ학인
-SELECT loc, ename
-FROM (SELECT loc, e.deptno
-	  FROM emp e, dept d
-	  WHERE e.deptno=d.deptno);
+-- inline view 
+--8. emp, dept table에서 검색, 조건은 각 부서별 지역명,
+-- 근무하는 사원
 
-SELECT rownum, loc, e.deptno
-FROM emp e, dept d
-WHERE e.deptno=d.deptno;
+-- ename은 from절에서 미 존재하는 컬럼 실행 오류 발생
+-- select loc, ename
+-- from (select loc, e.deptno
+-- 		 from emp e, dept d
+-- 		 where e.deptno=d.deptno);
 
-SELECT rownum, loc, ename
-FROM (SELECT ename, loc
-	  FROM emp e, dept d
-	  WHERE e.deptno=d.deptno);
+
+select loc, e.deptno
+from emp e, dept d
+where e.deptno=d.deptno;
+
+
+select ename, loc, e.deptno
+from emp e, dept d
+where e.deptno=d.deptno;
+-- inline 미사용시에도 검색 결과는 동일하나 문법review 및
+-- inline에서 검색 안된 컬럼데이터는 메인 select에서 사용 불가 확인
+select loc, ename
+from (select ename, loc
+		from emp e, dept d
+		where e.deptno=d.deptno);
+
+
 
 
 /* 
