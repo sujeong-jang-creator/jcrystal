@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* id가 customers 인 tag의 하위의 모든 td와 th를 지정
+*/
+
+#customers td, #customers th {
+  border: 10px solid rgb(2, 2, 2);
+  padding: 38px;
+}
+
+   /*
+   id가 customers인 모든 tr 중에 짝수 순번에 있는 tag들의 배경색을 
+   설정한 색으로 해라
+   nth-child(even) : 자식으로서 짝수 순번 의미
+   nth-child(odd) : 자식으로서 홀수 순번 의미
+   */
+
+#customers tr:nth-child(even){background-color: #ee7b0f;}
+
+#customers tr:nth-child(odd){background-color: #f7e70b;}
+
+   /* scc의 주석 표현
+   hover는 client가 마우스를 올렸을 때의 동작을 감지하는 속성
+   
+   id가 customers 라는 tag 하위에 모든 tr tag들 의미
+   tr tag에 마우스를 올리면 색을 저 색으로 하겠다는 의미
+   */
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #581399;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<table id="customers">
+  <tr>   <!-- table row -->
+    <th>Company</th>    <!-- table header : table 컬럼의 제목 -->
+    <th>Contact</th>
+    <!-- inline 방식으로 재사용성 고려 없이 설정하는 css-->
+    <th style="background-color:aqua">Country</th>
+    <th>Country</th>
+  </tr>
+
+  <tr>
+    <td>Alfreds Futterkiste</td>    <!-- table data-->
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Sweden</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Königlich Essen</td>
+    <td>Philip Cramer</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+  <tr>
+    <td>North/South</td>
+    <td>Simon Crowther</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Paris spécialités</td>
+    <td>Marie Bertrand</td>
+    <td>France</td>
+  </tr>
+</table>
+
+</body>
+</html>

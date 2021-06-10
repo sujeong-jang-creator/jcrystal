@@ -1,0 +1,29 @@
+
+#  css
+
+- https://docs.emmet.io/abbreviations/syntax/  << 오늘 이 링크 수업
+  = EMMET사이트 > Documentation > syntax
+
+- Alt + L, O (마우스 우클릭 해도 있음) : 라이브 서버 켜기EMMET > Documentation
+
+- 속성
+    - div : 시작
+    - id : # 으로 표현 / #뒤에 오는거 value
+    - class : . 으로 표현 / .뒤에 오는거  value
+    - $ : 자릿수 숫자만큼 달러싸인 표시 ex) $$$ : 3자리수
+    - p : element 태그
+
+- https://www.w3schools.com/html/html_form_input_types.asp << input types
+  w3 html input Forms 잘 보기
+
+- https://www.w3schools.com/tags/tag_comment.asp << tags
+
+- https://www.w3schools.com/css/css_selectors.asp << 몇개정돈 외워둬야함.
+
+- https://www.w3schools.com/css/css_rwd_templates.asp << RWD css_rwd_templates
+
+- ctrl + sapce > 활성화
+
+- ctrl + h >> 이미지 바꾸는거 나옴. 이미지 글씨 드래그하고!!
+
+- shif + alt + f : html 코드 예쁘게 정리하는거

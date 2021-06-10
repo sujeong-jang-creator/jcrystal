@@ -1,0 +1,52 @@
+학습 내용
+
+1. html tag 학습
+    * from tag
+    - client가 server에 데이터를 입력해서 전송할 수 있는 tag
+    - http://www.w3scholls.com
+
+2. css 학습
+    - 볼 수 있을 정도로만 학습
+    - http://www.w3scholls.com
+    - 학습 방법
+        이미 존재하는 소스들 보고 실행해 보고 분석 후에 실습 #절대적인 학습방법#
+
+3. java script
+    - client 브라우저에서 동적 page 구성이 가능하겠금 해주는 이벤트 처리 언어
+    - 웹 page 이동 없이도 서버에 요청/응답이 한 page에서 실행되게 해주는 필수 기술
+    - 대표적인 비동기(ajax : 에이잭스) 기술
+        검색 키워드 입력되는 로직
+            입력되는 자음/모음 하나하나를 입력시 마다 네이버나 구글은 데이터를 받음. 즉, 클라이언트가 은연중에
+            요청(request)을 지속적으로 전송.
+            서버는 client가 입력중임에도 꾸준히 응답(response) 수행
+            결론 - end user의 사용 편의성을 위해 설계된 메커니즘.
+
+    1 + 2 + 3 : 브라우저가 있어야만 하는 브라우저 실행 언어
+
+4. flask
+
+------차후 학습 내용------
+
+1. 데이터 수집
+    웹 사이트에서 수집
+        html / css / java script
+    rdbs로 부터 수집
+    ..
+
+
+-------학습 단계-------
+1. html 파일 생성
+2. emmet 활용
+3. html tag 생성 연습
+4. w3school 사이트 참조
+5. form tag 기초 학습
+    w3schools form tag들 학습
+    실습
+    w3schools form tag들 학습 - 속성, pattern(정규표현식), email...
+    실습 + 속성
+    vsc의 기능(영민 조언 : ctrl+alt+방향키)
+
+6. 강사 혼자 list 보면서 css까지 w3schools 확인
+    - 설명 하고 코드 일부 편집후에 전체 공유
+7. 소스 편집
+    - <style> 위치는 다음과 같구나 체감
