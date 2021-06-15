@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>json 포멧 데이터를 form input tag에 출력하기</h3>
+
+    firstName : <input type="text" id="id1"> <br>
+    lastName : <input type="text" id="id2"> <br>
+    id : <input type="text" id="id3"> <br>
+
+    <br><hr><br>
+    아이디 : <input type="text" id="pid"> <br>
+    이름 : <input type="text" id="pname"> <br>
+
+    <!-- this는 포함된 tag(element) 자신을 의미
+        html tag / text들 모두다 객체로 관리
+        즉 this는 타 언어와 동일하게 해당 객체 자신을 의미하는 표현법
+        python 에선 self 와 동일  -->
+        
+    <!-- 응용 step01 단계 -->
+    <!-- <button value="1" onclick="print_data(this.value)">1</button> 
+    <button value="2" onclick="print_data(this.value)">2</button> 
+    <button value="3" onclick="print_data(this.value)">3</button> 
+    <button value="4" onclick="print_data(this.value)">4</button>  -->
+
+    <br><hr><br>
+    <!-- 응용 step02 단계 -->
+    <button value="p1" onclick="print_data2(this.value)">1</button> 
+    <button value="p2" onclick="print_data2(this.value)">2</button> 
+    <button value="p3" onclick="print_data2(this.value)">3</button> 
+    <button value="p4" onclick="print_data2(this.value)">4</button> 
+
+
+    <script>
+        //응용 step02단계
+        function print_data2(no){
+            document.getElementById("pid").value = person_all[no].id; //person_all['p1'].id
+            document.getElementById("pname").value = person_all[no].name;
+        }
+
+
+        // 응용 step01 단계
+        function print_data(no){
+            // console.log(person_all['p'+no].name);
+            document.getElementById("pid").value = person_all['p'+no].id; //person_all['p1'].id
+            document.getElementById("pname").value = person_all['p'+no].name;
+        }
+
+        let person_all = {
+            "p1": {
+                "name": "John",
+                "id": 5566
+            },
+            "p2": {
+                "name": "재석",
+                "id": 12
+            },
+            "p3": {
+                "name": "종원",
+                "id": 13
+            },
+            "p4": {
+                "name": "영자",
+                "id": 15
+            }
+        };
+        let v = 'p'+'2';  // key를 문자열로 가공
+        // alert(v);
+        console.log(person_all[v]);  //문자열인 key를 사용하는 브랫킷 연산자 
+
+
+        console.log("** step01 **");
+
+        var person = {
+            "firstName": "John",
+            "lastName": "Doe",
+            "id": 5566
+        };
+
+        //? person이 참조하는 json객체의 개별 데이터를 각 text field에 출력하기
+        /*document.getElementById("id1").value = person.firstName;
+        html 문서 전체 : document
+        getElementById() : 고유한 id로 해당 tag 검색
+        .value : 검색된 tag에 value 속성이 유효한 경우에 사용 가능 */
+        document.getElementById("id1").value = person.firstName;
+        document.getElementById("id2").value = person.lastName;
+        document.getElementById("id3").value = person.id;
+
+        
+
+
+    </script>
+</body>
+
+</html>
