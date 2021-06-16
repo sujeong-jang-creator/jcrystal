@@ -1,0 +1,64 @@
+학습 예정 내용
+
+1. 배열 
+    생성 및 활용
+    PYTHON의 list와 동일한 데이터 타입
+    고유한 index로 개별 데이터(요소, element)들 관리
+    js에서는 객체 단위
+    [] / new Array() ..
+
+2. 구글 차트
+    1단계 : 구글 소스 100% 여과없이 적용해서 실행
+    2단계 : 구글 chart 수정 
+        하나의 html 상에서만 진행
+    3단계 : 서버에서 응답하는 데이터를 
+        client -> index.html : 서버에 차트 데이터 요청 
+        -> 서버는 요청 받고 응답 (flask)
+        -> index.html이 응답받은 데이터로 차트 그리기
+
+3. 비동기
+    - 순수 js 학습
+
+4. 응용
+    emp01의 crud - sql
+    flask
+    비동기
+    jwt(토큰 기술) - 인증 필요 기술중 하나
+    
+
+
+
+5. 용어
+    1. 오픈 API 
+        - 누구나가 제약없이 사용 가능하다
+        - 내가 편집도 가능한 것들을 의미
+
+        대표적 
+            리눅스 
+                os 운영체제 이면서 오픈 API 즉 편집 가능
+                리눅스 API로 제품을 벤더사들이 만들어서 판매
+                    레드햇 / CentOS / 우분트 ...
+
+* 지식 부자
+- 기획
+1. python 
+2. pep8 pylint
+3. sql 
+4. flask
+    Rest API
+    http의 요청방식 + url의 정보가 하나의 자원
+
+    get http://ip:port/1    - 1에 해당하는 정보검색
+    delete http://ip:port/1 - 1에 해당하는 데이터 삭제 
+
+5. java sctipt
+    - ESLint
+    
+6. 비동기
+    web page이 : i동 없이 요청/응답 실행ndex.html <-> flask
+
+    동기방식 : a.html -> flask -> b.html
+
+1 + 5 + github = web site
+
+

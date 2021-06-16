@@ -11,54 +11,67 @@
 <body>
     <h3>이름 입력하면 id가 출력되는 동적 page 구성</h3>
 
-    1. 이벤트 발생 시점 정하기 : 포커스 이동시<br>
-    2. 다수의 이름값들 비교를 어떻게 할 수 있는가 <br>
+    1. 이벤트 발생 시점 정하기 : 포커스 이동시 <br>
+    2. 다수의 이름값들 비교를 어떻게 할 수 있는가 : == <br>
     3. 이름 비교로 선별한 id값 출력 코드는 어떻게 할 것인지 ... <br>
 
-    <br>
-    <hr><br>
+    <br><hr><br>
 
-    아이디 : <input type="text" id="pid"><br>
-    <!--onblur : 포인터가 이동하는 것을 감지하는 이벤트 감지기 속성-->
-    이름 : <input type="text" id="pname" onblur="alert(this.value)"><br>
+    아이디 : <input type="text" id="pid"> <br>
+    <!-- onblur - 포인터가 이동하는 것을 감지하는 이벤트 감지기 속성 -->
+    이름 : <input type="text" id="pname" onblur="id_print(this.value)"> <br>
 
     <script>
-        function id_print(name) {
-            for (p in person_all) {
-                if
-                document.getElementById("pid").value = person_all[p].id;
+        function id_print(name){
+            for(p in person_all){
+                if(person_all[p].name == name){
+                  document.getElementById("pid").value = person_all[p].id;
                 }
             }
         }
 
-        // function id_print(name){
-        //     // console.log(name == "재석");
-        //     for(p in person_all){
-        //         //if (person_all[p].name === "재석"){
-        //         console.log(p); p1
-        //         console.log(perspm_all[p]); //{name }
-        //         //}
-        //     }
-        // }
+
+        function id_print2(name){
+            /* person_all이 참조하는 모든 데이터의 key만을 뽑아서 
+            person_all이 참조하는 데이터의 id값만 반복해서 뽑고 반복적으로 pid라는 
+            id값인 tag의 value 속성에 값 대입
+            로직상 브라우저에 출력
+            */ 
+            for(p in person_all){
+                document.getElementById("pid").value = person_all[p].id;
+            }
+        }
+
+        function id_print(name){
+            for(p in person_all){
+                // if(person_all[p].name == "재석"){
+                console.log(p); //p1
+                console.log(person_all[p]);  //{name: "John", id: 5566} 데이터들
+                console.log(person_all[p].id);  // id값들
+                console.log('----');
+                // }
+            }
+        }
 
         let person_all = {
             "p1": {
-                "name": "수정",
-                "id": 1111
+                "name": "John",
+                "id": 5566
             },
             "p2": {
-                "name": "지현",
-                "id": 2222
+                "name": "재석",
+                "id": 12
             },
             "p3": {
-                "name": "주영",
-                "id": 3333
+                "name": "종원",
+                "id": 13
             },
             "p4": {
-                "name": "성규",
-                "id": 4444
+                "name": "영자",
+                "id": 15
             }
         };
+
     </script>
 </body>
 
