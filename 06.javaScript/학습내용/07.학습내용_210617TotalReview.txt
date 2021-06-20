@@ -1,0 +1,53 @@
+비동기 실습 구조
+
+1. 
+html <-> app.py <-> dao
+
+dao
+    select 한 결과값을 DTO로 생성해서 반환
+    select """"        JSON 구조로 가공해서 반환
+
+    insert 시에 DTO 객체 생성
+        html에 input 에 입력된 데이터를 app.py 받아서
+        request 객체는 client 접속한 client의 모든 정보를 보유
+        client 가 입력한 데이터를 request 에 저장, 이미 w3 스펙에 맞게 flask library들이 
+        구현되어 있어서 사용
+        데이터 착출
+            request.form.get('입력된 데이터 구분을 key')
+
+            key 
+                <input type="?" name="key명">
+            web query query 
+                key1=value1&key2=value2 ...
+
+            client 가 전송하는 데이터를 구분하기 위해서는 key로  value  구분
+            하나 이상  & 
+
+        동시에 여러명이 회원가입 시도시
+        모든 user별로 개별 request 각자 서버에서 생성
+        client가 입력한 데이터들을 명확하게 걱정없이 구분이 자동으로 되는 상황
+        개별 request로 부터 데이터 착출해서 insert 시도 
+
+        파일 분리
+            pattern
+
+            reqres.html - view
+
+            app.py - url로 구분해서 각 메소드가 실행
+                    controller
+            dao.py 
+                EmpDAO 클래스 - DAO
+            
+            dto.py 
+                EmpDTO 클래스 - DTO
+
+app.py 
+    dao.py 통신
+    dao.py 에서 반환하는 모든 데이터값들은 app.py 통해서 client에게 응답 
+    
+client
+    url로 app.py 
+    app.py의 각 route() 통해서 해당 html 파일 실행
+
+
+

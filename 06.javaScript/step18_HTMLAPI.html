@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="result"></div>
+
+    <script>
+        alert(Storage);
+        // Check browser support
+
+        // 현 실행되는 브라우저가 storage() 함수를 지원하는지 검증
+        // function Storage() {[native code]}
+        if (typeof (Storage) !== "undefined") { //underfined 즉 없다는 의미 결론 있을 경우
+            // 브라우저의 localStore에 저장
+            // key는 value로 저장(setItem(key, value))
+            localStorage.setItem("lastname", "수정");
+
+            // getItem():브라우저 메머리에 저장된 key로 데이터 획득
+            document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+            alert(localStorage.gerItem("last name"))
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+    </script>
+
+</body>
+
+</html>
