@@ -163,10 +163,10 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     data = this.responseText;
-                    data = JSON.parse(data);
+                    'data' = JSON.parse(data);
                     alert(data.ename);
-                    document.getElementById("ename").value = data.ename;
-                    document.getElementById("sal").value = data.sal;
+                    document.getElementById("ename").value = 'data'.ename;
+                    document.getElementById("sal").value = 'data'.sal;
                 }
             };
             xhttp.open("POST", "getemp");
