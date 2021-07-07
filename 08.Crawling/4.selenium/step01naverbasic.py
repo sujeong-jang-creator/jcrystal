@@ -8,7 +8,7 @@ import time  # 실행을 잠시 중지(sleep(초단위))
 # 크롬 브라우저 실행
 # window : driver/chromedriver.exe
 # mac : driver/chromedriver 유닉스실행파일(장동기왈)
-driver = webdriver.Chrome("c:/driver/chromedriver")
+driver = webdriver.Chrome("c:/driver/chromedriver.exe")
 
 # http의 문서를 획득(브라우저에 실행시킬 사이트 url)
 # http 프로토콜 관점에선 https://www.naver.com/ 즉 url로 직접 요청하는 기본 방식을 get 방식
