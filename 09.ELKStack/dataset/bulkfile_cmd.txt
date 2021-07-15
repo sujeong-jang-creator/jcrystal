@@ -1,0 +1,15 @@
+-- * 주의사항 : json 파일의 마지막 에 enter 필수
+-- 현업에서 주로 사용하는 구조, raw는 백업해야 함
+
+-- curl 명령창에서 cmd 라는 명령어로 웹과 소통하는 표준 기술
+-- bulk 파일을 curl 통해서 빈번히 작업
+-- 권장 구조
+    1. json
+    2. ES에 저장하는 명령어
+        json포멧 헤더 정보, 확장자 포함한 file명
+
+
+curl -XPOST http://localhost:9200/_bulk -H "Content-Type: application/json" --data-binary @bulk_bank.json
+
+
+curl -XPOST http://localhost:9200/_bulk -H "Content-Type: application/json" --data-binary @bulk_accounts.json

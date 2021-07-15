@@ -1,0 +1,12 @@
+실습 내용
+
+1. 기술 문서를 보고 es에 crud
+    1. https://elasticsearch-py.readthedocs.io/en/v7.13.3/
+    2. library install
+    3. 기본 test
+    4. 우리 데이터로 crud 작업
+        - vsc의 콘솔창에서 결과 출력
+    5. 결과는 브라우저로 실행
+        - html / css
+        - 서버 데이터를 client 브라우저에 응답해서 출력(flask)
+        - 웹페이지 이동이 아닌 단순 비동기

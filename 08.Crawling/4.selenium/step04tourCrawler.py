@@ -68,10 +68,10 @@ try:
 
         # 위치를 명확하게 정하려고 >표시를 사용한다.
         boxItems = soup.select(".panelZone > .oTravelBox > .boxList > .boxItem")
-        
         # print(boxItems)
         # 순서대로 되있지는 않으므로 전체적으로 보고 찾아보자.
         for boxItem in boxItems: 
+            print(boxItem)
             img_src = boxItem.find("img")['src']
             link = boxItem.find("a")['onclick']
             proTitle = boxItem.find("img")['alt']
