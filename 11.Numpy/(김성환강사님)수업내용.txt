@@ -1,0 +1,6 @@
+1. numpy - ndarray
+2. 머신러닝 - 10일
+3. opencv - 3-4일
+4. 딥러닝 기초 - 10일
+5. 딥러닝 컴퓨터 비전 -> Object Detection, Pose estimation 5-7일
+6. 장고(웹 App 프레임워크) 10일
