@@ -1,0 +1,18 @@
+분류평가지표
+- accuracy: accuracy_score()
+- recall/sensitivity/TPR : recall_score()
+- precision(PPV) : precision_score()
+    : 예측한 결과가 얼마나 맞았는지! 스팸메일을 얼마나 잘 찾았는지!
+- recall과 precision은 반비례관계
+- f1 score : f1_score()
+    - classification_report()
+    - confusion_matrix()
+- precision_recall_curve, average_precision_score(ap score)
+    : 밑에 넓이가 넓은게 좋은거!
+- roc_curve, roc auc score
+    - 위양성률이 커진다 : 네거티브를 못맞춤
+    - 위양성률이 작아진다 : 네거티브를 잘 맞춤
+
+plot_precision_recall_curve (학습한 모델, X, y) ax name
+plot_precision_recall_curve
+plot_confusion_matrix
