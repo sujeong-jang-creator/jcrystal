@@ -4,7 +4,7 @@
 
 1. tensorflow object detection api git clone
     - https://github.com/tensorflow/models
-    - git clone https://github.com/tensorflow/models.git
+    - git clone https://github.com/tensorflow/models
 
 2. protobuf 설치
     - https://github.com/protocolbuffers/protobuf/releases  이동
