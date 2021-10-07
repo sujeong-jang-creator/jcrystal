@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Form</title>
+</head>
+<body>
+<h1>설문 폼</h1>
+<h2>{{question.pk}}. {{question.question_text}}</h2>
+
+<form action="/poll/vote" method='post'>
+    {% csrf_token %} {#post 방식 요청시 반드시 넣어줘야 한다. - 보안관련설정. csrf 공격을 방지하기 위한 토큰값 생성#}
+
+    <input type='hidden' name='question_id' value='{{question.pk}}'>
+
+    {%for choice in question.choice_set.all %}
+        <input type='radio' name='choice' value="{{choice.pk}}" id="{{choice.pk}}">
+        <label for="{{choice.pk}}">{{choice.choice_text}}</label><br>
+    {% empty %}
+        등록된 보기가 없습니다.
+    {% endfor %}
+    <button type='submit'>투표</button>
+    <button type='reset'>초기화</button>
+
+</form>
+</body>
+</html>
