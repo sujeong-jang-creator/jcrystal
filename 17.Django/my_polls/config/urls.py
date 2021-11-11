@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    path("", TemplateView.as_view(template_name='home.html'), name="home"),
     path('admin/', admin.site.urls),
     path('poll/', include("poll.urls")),  # url path가 poll/시작하면 나머지 경로는 poll/urls.py를 찾아봐라.
 ]

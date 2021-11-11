@@ -4,6 +4,7 @@ from django.urls import path
 from . import views
 
 # 요청 url - 함수 매핑 => urlpatterns 변수의 리스트에 등록
+app_name = 'poll'
 urlpatterns = [
     path("list", views.list, name='list'),  # poll/list => views.list 함수 호출
     path("vote_form/<int:question_id>", views.vote_form, name='vote_form'), # poll/vote_form 함수 호출

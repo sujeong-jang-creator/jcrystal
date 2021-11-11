@@ -20,7 +20,9 @@
     <ul>
         {% for question in question_list %}
             <li>
-                <a href="/poll/vote_form/{{question.pk}}"> <!--/poll/vote_form/question의 id-->
+                <!-- /poll/vote_form/{{question.pk}}-->
+                {# url "app_name:path명" [path parameter에 넘길 값] #}
+                <a href='{% url "poll:vote_form" question.pk %}'> <!--/poll/vote_form/question의 id-->
                     {{question.pk}}. {{question.question_text}}
                 </a>
             {% comment %}
